@@ -1,12 +1,14 @@
-import { ReactComponent as SunIcon } from './../assets/icon-sun.svg'
-import { ReactComponent as MoonIcon } from './../assets/icon-moon.svg'
+import { ReactComponent as SunIcon } from '../assets/icon-sun.svg'
+import { ReactComponent as MoonIcon } from '../assets/icon-moon.svg'
 
 const Header = ({ toggle, theme }) => {
   return (
     <header>
-      <h1>devfinder</h1>
-      <button className='color-toggle' onClick={toggle}>
-        <span className='toggle-text'>
+      <a href='/'>
+        <h1>devfinder</h1>
+      </a>
+      <button className='color-toggle_button' onClick={toggle}>
+        <span className='color-toggle_text'>
           {theme === 'light' ? 'dark' : 'light'}
         </span>
         {theme === 'light' ? <MoonIcon /> : <SunIcon />}

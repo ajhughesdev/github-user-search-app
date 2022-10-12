@@ -1,30 +1,26 @@
-.app-container {
-  background-color: var(--background);
+.app {
   position: absolute;
-  max-width: 23.4375rem;
+  width: 23.4375rem;
   margin: 0 auto;
   left: 50%;
-  transform: translateX(-50%);
+  translate: -50% 0;
 }
 
 header {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   padding: 1.9375rem 1.5rem 2.25rem;
 }
 
-.color-toggle {
+.color-toggle_button {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-button {
-  cursor: pointer;
-}
-
-.toggle-text {
+.color-toggle_text {
   text-transform: uppercase;
   font-size: var(--h4);
   color: hsl(var(--text));
@@ -32,18 +28,26 @@ button {
 
 h1 {
   font-size: var(--h1);
-  color: var(--darkest-text);
+  color: var(--dark-text);
   line-height: hsl(var(--text));
   font-weight: var(--700);
 }
 
-input {
+form {
+  position: relative;
+  padding-bottom: 60px;
+  /* border: red 1px solid; */
+}
+
+.search_input {
   width: 20.4375rem;
   margin-inline: 1.5rem;
   padding: 1.125rem 0 1.0625rem 2.8125rem;
-  border-radius: .9375rem;
-  background: var(--element-background) url("data:image/svg+xml,%3Csvg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.84055 0C3.96592 0 0 3.95507 0 8.81643C0 13.6778 3.96596 17.6329 8.84055 17.6329C11.0135 17.6329 13.0059 16.8469 14.5469 15.5452L18.8125 19.7891C18.9541 19.9297 19.1386 20 19.3236 20C19.5099 20 19.6959 19.9287 19.8374 19.7865C20.1195 19.5026 20.1183 19.0439 19.8348 18.7616L15.5744 14.5229C16.8877 12.9839 17.6811 10.9908 17.6811 8.81643C17.6811 3.95507 13.7152 0 8.84055 0ZM14.1121 13.9754C15.4225 12.6453 16.2318 10.8233 16.2318 8.81639C16.2318 4.75407 12.9161 1.44923 8.84055 1.44923C4.76495 1.44923 1.44927 4.75407 1.44927 8.81639C1.44927 12.8785 4.76495 16.1835 8.84055 16.1835C10.8469 16.1835 12.6691 15.3826 14.0022 14.0847C14.0175 14.0658 14.0339 14.0475 14.0514 14.03C14.0709 14.0104 14.0911 13.9922 14.1121 13.9754Z' fill='%230079FF'/%3E%3C/svg%3E%0A") no-repeat 1rem 50%;
-  position: relative;
+  border-radius: 0.9375rem;
+  background: var(--element-background)
+    url("data:image/svg+xml,%3Csvg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.84055 0C3.96592 0 0 3.95507 0 8.81643C0 13.6778 3.96596 17.6329 8.84055 17.6329C11.0135 17.6329 13.0059 16.8469 14.5469 15.5452L18.8125 19.7891C18.9541 19.9297 19.1386 20 19.3236 20C19.5099 20 19.6959 19.9287 19.8374 19.7865C20.1195 19.5026 20.1183 19.0439 19.8348 18.7616L15.5744 14.5229C16.8877 12.9839 17.6811 10.9908 17.6811 8.81643C17.6811 3.95507 13.7152 0 8.84055 0ZM14.1121 13.9754C15.4225 12.6453 16.2318 10.8233 16.2318 8.81639C16.2318 4.75407 12.9161 1.44923 8.84055 1.44923C4.76495 1.44923 1.44927 4.75407 1.44927 8.81639C1.44927 12.8785 4.76495 16.1835 8.84055 16.1835C10.8469 16.1835 12.6691 15.3826 14.0022 14.0847C14.0175 14.0658 14.0339 14.0475 14.0514 14.03C14.0709 14.0104 14.0911 13.9922 14.1121 13.9754Z' fill='%230079FF'/%3E%3C/svg%3E%0A")
+    no-repeat 1rem 50%;
+  position: absolute;
   caret-color: hsl(var(--text));
   color: hsl(var(--text));
   font-size: var(--h4);
@@ -51,7 +55,7 @@ input {
   line-height: calc(25 / 13);
 }
 
-[data-theme="light"] input {
+[data-theme='light'] input {
   box-shadow: 0 1rem 1.875rem -0.625rem rgb(70 96 187 / 0.198567);
 }
 
@@ -61,16 +65,26 @@ input {
   font-weight: var(--400);
 }
 
-.search-submit {
-  margin: .4063rem .4375rem .4688rem .4375rem;
+.no-results {
+  font-size: var(--h4);
+  font-weight: var(--700);
+  color: var(--error-text);
+  line-height: calc(25 / 13);
   position: absolute;
   right: 1.5rem;
-  padding: .7813rem .875rem .7813rem 1.125rem;
-  font-size: .875rem;
+  padding: 1.125rem 6.375rem 1.0625rem 0;
+}
+
+.search_submit-btn {
+  margin: 0.4063rem 0.4375rem 0.4688rem 0.4375rem;
+  position: absolute;
+  right: 1.5rem;
+  padding: 0.7813rem 0.875rem 0.7813rem 1.125rem;
+  font-size: 0.875rem;
   background-color: var(--bright-blue);
   text-align: center;
   color: var(--white);
-  border-radius: .625rem;
+  border-radius: 0.625rem;
   line-height: calc(20.73 / 14);
   font-weight: var(--700);
 }
@@ -79,25 +93,25 @@ input {
   height: fit-content;
   margin: 1rem 1.5rem 4.9375rem;
   padding: 2rem 1.5rem 3rem;
-  border-radius: .9375rem;
+  border-radius: 0.9375rem;
   background-color: var(--element-background);
   color: hsl(var(--text));
   display: grid;
   grid-template-columns: 4.375rem 1.2188rem 1fr;
   grid-template-rows: 4.375rem 2.0625rem 4.6875rem 1.4375rem auto 1.5rem auto auto;
   grid-template-areas:
-    " img . info "
-    " . . . "
-    " bio bio bio "
-    " . . . "
-    " stats stats stats"
-    " . . . "
-    " l-b l-b l-b "
-    " t-c t-c t-c ";
+    ' img . info '
+    ' . . . '
+    ' bio bio bio '
+    ' . . . '
+    ' stats stats stats'
+    ' . . . '
+    ' l-b l-b l-b '
+    ' t-c t-c t-c ';
 }
 
-[data-theme="light"] .profile-info {
-  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+[data-theme='light'] .profile-info {
+  box-shadow: 0 1rem 30px -10px rgba(70, 96, 187, 0.198567);
 }
 
 .user-avatar {
@@ -109,6 +123,7 @@ input {
 .info {
   grid-area: info;
 }
+margin-bottom: 76px;
 
 .user-name {
   font-size: var(--h3);
@@ -130,10 +145,6 @@ input {
 
 .bio {
   grid-area: bio;
-  display: flex;
-}
-
-.bio {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -149,8 +160,8 @@ input {
   justify-content: space-evenly;
   text-align: center;
   background-color: var(--background);
-  padding: 1.125rem .875rem 1.1875rem .9375rem;
-  border-radius: .625rem;
+  padding: 1.125rem 0.875rem 1.1875rem 0.9375rem;
+  border-radius: 0.625rem;
 }
 
 .stats div:first-of-type {
@@ -162,7 +173,7 @@ input {
 }
 
 h3 {
-  font-size: .6875rem;
+  font-size: 0.6875rem;
   line-height: calc(16.29 / 11);
   font-weight: var(--400);
   text-align: center;
@@ -173,21 +184,21 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .twitter-company {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   grid-area: t-c;
 }
 
 .location-blog p,
 .twitter-company p {
   display: flex;
-  gap: .8125rem;
+  gap: 0.8125rem;
   font-size: var(--h4);
   line-height: var(--h4-lh);
 }

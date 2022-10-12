@@ -1,23 +1,47 @@
-@charset 'utf-8';
+@charset "utf-8";
 @import 'the-new-css-reset';
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../public/fonts/SpaceMono-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../public/fonts/SpaceMono-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Mono-fallback';
+  size-adjust: 136.69%;
+  ascent-override: 81%;
+  src: local('Arial');
+  font-display: fallback;
+}
 
 /* Light Mode Colors */
 [data-theme='light'] {
-  --darkest-text: #2b3442;
-  --background: #f6f8ff;
   --text: 217 35% 45%;
+  --dark-text: #2b3442;
   --element-background: #fefefe;
+  --background: #f6f8ff;
 }
 
 /* Dark Mode Colors */
 [data-theme='dark'] {
-  --darkest-text: #fff;
-  --background: #141d2f;
   --text: 0 0% 100%;
+  --dark-text: #fff;
   --element-background: #1e2a47;
+  --background: #141d2f;
 }
 
-.app {
+.app_container {
   --error-text: rgb(247 70 70);
   --bright-blue: rgb(0 121 255);
   --white: #fff;
@@ -30,10 +54,19 @@
   --h4-lh: calc(19.25 / 13);
   --400: 400;
   --700: 700;
-  font-family: 'Space Mono', monospace;
+
+  font-family: 'Space Mono', 'Space Mono-fallback', monospace;
   font-size: 16px;
   height: 100vh;
   width: 100%;
   background-color: var(--background);
   cursor: default;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+button {
+  cursor: pointer;
 }
