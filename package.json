@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "react-scripts": "5.0.1",
-    "the-new-css-reset": "^1.7.3"
+    "the-new-css-reset": "^1.8.2"
   },
   "browserslist": {
     "production": [
